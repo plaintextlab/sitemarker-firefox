@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Site Marker",
+  "version": "1.0",
+  "description": "Mark websites with your own notes (e.g. fraud warnings) and get reminded whenever you revisit them.",
+  "developer": {
+    "name": "Bitangsha Ray",
+    "url": "https://plaintextlab.org"
+  },
+  "permissions": ["storage", "tabs", "scripting", "unlimitedStorage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Site Marker"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "site-marker@local.extension"
+    }
+  }
+}

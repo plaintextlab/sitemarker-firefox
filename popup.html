@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { width: 300px; font-family: -apple-system, sans-serif; padding: 10px; }
+  h3 { margin: 0 0 8px; font-size: 13px; color: #444; }
+  .host { font-weight: bold; word-break: break-all; margin-bottom: 8px; font-size: 14px; }
+  select, textarea, button {
+    width: 100%; box-sizing: border-box; margin-bottom: 8px;
+    font-family: inherit; font-size: 13px; padding: 5px;
+  }
+  textarea { resize: vertical; min-height: 50px; }
+  #save { background: #d93025; color: #fff; border: none; padding: 8px; cursor: pointer; }
+  #unmark { background: #eee; border: none; padding: 6px; cursor: pointer; }
+  ul { list-style: none; padding: 0; margin: 8px 0 0; max-height: 140px; overflow-y: auto; }
+  li {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 4px 0; border-bottom: 1px solid #eee; font-size: 12px;
+  }
+  li button { width: auto; margin: 0; padding: 2px 6px; }
+  #note-counter { text-align: right; font-size: 11px; color: #888; margin: -6px 0 8px; }
+  #storage-meter { font-size: 11px; color: #666; margin-top: 4px; }
+  .backend-choice {
+    margin: 4px 0 10px; padding: 8px; background: #f7f7f7; border-radius: 4px;
+  }
+  .backend-choice label {
+    display: flex; align-items: flex-start; gap: 6px; font-size: 12px;
+    margin-bottom: 4px; cursor: pointer;
+  }
+  .backend-choice input { margin-top: 2px; }
+  .tag {
+    font-size: 10px; padding: 1px 5px; border-radius: 3px; margin-left: 6px;
+    background: #e0e0e0; color: #555;
+  }
+  #credit {
+    text-align: right; font-size: 10px; color: #999; margin-top: 10px;
+  }
+  #credit a { color: #999; text-decoration: none; }
+  #credit a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <h3>Storage location</h3>
+  <div class="backend-choice">
+    <label>
+      <input type="radio" name="backend" value="local" id="backend-local">
+      <span id="local-label-text">Local storage (Unlimited)</span>
+    </label>
+    <label>
+      <input type="radio" name="backend" value="sync" id="backend-sync">
+      <span id="sync-label-text">Sync across devices</span>
+    </label>
+  </div>
+  <h3>Mark this site</h3>
+  <div class="host" id="host">loading&hellip;</div>
+  <select id="label">
+    <option value="Fraud">Fraud</option>
+    <option value="Scam">Scam</option>
+    <option value="Suspicious">Suspicious</option>
+    <option value="Note">Just a note</option>
+  </select>
+  <textarea id="note" placeholder="Why? (optional)"></textarea>
+  <div id="note-counter">0/280</div>
+  <button id="save">Mark site</button>
+  <button id="unmark" style="display:none;">Remove mark</button>
+  <h3>All marked sites</h3>
+  <ul id="list"></ul>
+  <div id="credit">Bitangsha Ray (<a href="https://plaintextlab.org" target="_blank" rel="noopener">plaintextlab.org</a>)</div>
+  <script src="popup.js"></script>
+</body>
+</html>
